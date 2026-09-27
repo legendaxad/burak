@@ -1,3 +1,15 @@
+/*
+Project Standards:
+  -- Logging Standards
+  -- Naming Standards
+        function,method ,variable=> Camel Case 
+        class => Pascal case              
+        folder=>KEBAB
+        css=>SNAKE CASE
+  -- Error handling
+      
+*/
+
 // N-TASK
 
 // const palindromCheck = (str: string): boolean => {
