@@ -31,7 +31,6 @@ const memberSchema = new Schema<Member>(
     },
     memberAdress: {
       type: String,
-      required: true,
     },
     memberDesc: {
       type: String,
