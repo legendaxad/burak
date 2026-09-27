@@ -9,7 +9,10 @@ Project Standards:
   -- Error handling
       
 */
-
+/* Rest api
+   graph api
+   traditional api
+ */
 // N-TASK
 
 // const palindromCheck = (str: string): boolean => {
