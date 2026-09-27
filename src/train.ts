@@ -13,6 +13,22 @@ Project Standards:
    graph api
    traditional api
  */
+// O-TASK
+
+// const calculateSumOfNumbers = (array: any[]) => {
+//   let i = 0;
+//   let result = 0;
+//   for (i; i < array.length; i++) {
+//     const save = typeof array[i];
+//     if (save === "number") {
+//       result += array[i];
+//     }
+//   }
+//   return result;
+// };
+
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+
 // N-TASK
 
 // const palindromCheck = (str: string): boolean => {
