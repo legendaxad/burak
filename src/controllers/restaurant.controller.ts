@@ -1,7 +1,7 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../model/Member.service";
-import { MemberInput } from "../libs/types/member";
+import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enums";
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
@@ -27,11 +27,17 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     console.error("Error  signup page:", error);
   }
 };
-restaurantController.processLogin = (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: Request, res: Response) => {
   try {
-    res.send("You are on processLogin page");
-  } catch (error) {
-    console.error("Error  processLogin page:", error);
+    const input: LoginInput = req.body;
+
+    const memberService = new MemberService();
+    const result = await memberService.processLogin(input);
+
+    res.send(result);
+  } catch (err) {
+    console.error("Error  processLogin page:", err);
+    res.send(err);
   }
 };
 restaurantController.processSignup = async (req: Request, res: Response) => {
