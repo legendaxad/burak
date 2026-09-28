@@ -31,7 +31,6 @@ class MemberService {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
-
   public async processLogin(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
       .findOne(
@@ -40,16 +39,15 @@ class MemberService {
       )
       .exec();
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
-    // const isMatch = input.memberPassword === member.memberPassword;
     const isMatch = await bcrypt.compare(
       input.memberPassword,
       member.memberPassword,
     );
-
     if (!isMatch)
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
-
-    return member;
+    return (await this.memberModel
+      .findById(member._id)
+      .exec()) as unknown as Member;
   }
 }
 
