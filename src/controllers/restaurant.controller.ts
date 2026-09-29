@@ -7,7 +7,7 @@ const memberService = new MemberService();
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
-    res.send("You are on home page");
+    res.render("home");
   } catch (error) {
     console.error("Error  home page:", error);
   }
@@ -15,7 +15,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
 
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
-    res.send("You are on login page");
+    res.render("login");
     // send | json |redirect | end | render
   } catch (error) {
     console.error("Error  login page:", error);
@@ -23,7 +23,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 };
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
-    res.send("You are on signup page");
+    res.render("signup");
   } catch (error) {
     console.error("Error  signup page:", error);
   }
