@@ -15,19 +15,35 @@ Project Standards:
  */
 // P-TASK
 
-const obj = { a: 10, b: 20 };
+// Q-TASK
 
-const objectToArray = (obj: any) => {
-  let result = [];
+// const obj = { name: "BMW", model: "M3" };
+// const str = "model";
 
-  for (const key of Object.keys(obj)) {
-    result.push([key, obj[key]]);
-  }
+// const hasProperty = <T extends object>(obj: T, key: string): boolean => {
+//   for (const k of Object.keys(obj)) {
+//     if (k === key) {
+//       return true;
+//     }
+//   }
+//   return false;
+// };
 
-  return result;
-};
+// console.log(hasProperty(obj, str));
 
-console.log(objectToArray(obj));
+// const obj = { a: 10, b: 20 };
+
+// const objectToArray = (obj: any) => {
+//   let result = [];
+
+//   for (const key of Object.keys(obj)) {
+//     result.push([key, obj[key]]);
+//   }
+
+//   return result;
+// };
+
+// console.log(objectToArray(obj));
 
 // O-TASK
 
