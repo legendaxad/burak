@@ -16,9 +16,20 @@ Project Standards:
 /*
 R-TASK
 
-Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin. MASALAN: calculate("1+3") return 4.
-
 */
+
+// const calculate = (str: string) => {
+//   const splitted = str.split("+");
+//   let result = 0;
+//   console.log(splitted);
+//   for (const i of splitted) {
+//     const num = parseInt(i);
+//     result += num;
+//   }
+//   return result;
+// };
+
+// console.log(calculate("1+3+5223123+7+213231"));
 
 // Q-TASK
 
