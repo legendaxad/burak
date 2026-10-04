@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import MemberService from "../model/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enums";
+import { Message } from "../libs/Error";
 const memberService = new MemberService();
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
@@ -62,6 +63,18 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.error("Error  processLogin page:", err);
+    res.send(err);
+  }
+};
+restaurantController.checkout = async (req: AdminRequest, res: Response) => {
+  try {
+    if (req.session?.member)
+      res.send(
+        `<script>alert('Welcome back, ${req.session.member.memberNick}!');</script>`,
+      );
+    else res.send(`<script>alert('${Message.NOT_AUTHENTICATED}');</script>`);
+  } catch (err) {
+    console.error("Error  checkout page:", err);
     res.send(err);
   }
 };
