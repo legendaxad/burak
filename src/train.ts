@@ -28,7 +28,8 @@ Project Standards:
 //   }
 //   return false;
 // };
-
+const a =
+  "s%3AlwzobFPsp3jL2KnpZpwtrSPa5s3hPkbO.INAmLzcbmb1lzTU6Ly7UinJnQisTVMCEdyba7gjMl0w; Path=/; HttpOnly";
 // console.log(hasProperty(obj, str));
 
 // P-TASK

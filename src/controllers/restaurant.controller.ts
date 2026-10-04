@@ -1,7 +1,7 @@
 import { T } from "../libs/types/common";
 import { Request, Response } from "express";
 import MemberService from "../model/Member.service";
-import { LoginInput, MemberInput } from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enums";
 const memberService = new MemberService();
 const restaurantController: T = {};
@@ -28,28 +28,38 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     console.error("Error  signup page:", error);
   }
 };
-restaurantController.processSignup = async (req: Request, res: Response) => {
+restaurantController.processSignup = async (
+  req: AdminRequest,
+  res: Response,
+) => {
   try {
-    console.log("body:", req.body);
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
 
     const result = await memberService.processSignup(newMember);
     //TODO:SESSIONS authentication
-    res.send(result);
+    req.session.member = result;
+    req.session.save(function () {
+      res.send(result);
+    });
   } catch (err) {
     console.error("Error  processSignup page:", err);
-    res.send(err);
+    res.status(500).json({ message: "Signup failed" });
   }
 };
-restaurantController.processLogin = async (req: Request, res: Response) => {
+restaurantController.processLogin = async (
+  req: AdminRequest,
+  res: Response,
+) => {
   try {
     const input: LoginInput = req.body;
 
     const result = await memberService.processLogin(input);
     //TODO:SESSIONS authentication
-
-    res.send(result);
+    req.session.member = result;
+    req.session.save(function () {
+      res.send(result);
+    });
   } catch (err) {
     console.error("Error  processLogin page:", err);
     res.send(err);
