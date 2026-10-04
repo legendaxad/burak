@@ -13,6 +13,12 @@ Project Standards:
    graph api
    traditional api
  */
+/*
+R-TASK
+
+Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin. MASALAN: calculate("1+3") return 4.
+
+*/
 
 // Q-TASK
 
@@ -28,8 +34,7 @@ Project Standards:
 //   }
 //   return false;
 // };
-const a =
-  "s%3AlwzobFPsp3jL2KnpZpwtrSPa5s3hPkbO.INAmLzcbmb1lzTU6Ly7UinJnQisTVMCEdyba7gjMl0w; Path=/; HttpOnly";
+
 // console.log(hasProperty(obj, str));
 
 // P-TASK
