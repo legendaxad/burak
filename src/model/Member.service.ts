@@ -81,9 +81,7 @@ class MemberService {
     );
     if (!isMatch)
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
-    return (await this.memberModel
-      .findById(member._id)
-      .exec()) as unknown as Member;
+    return (await this.memberModel.findById(member._id).exec()) as Member;
   }
 }
 
