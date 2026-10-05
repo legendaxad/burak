@@ -1,23 +1,3 @@
-/*
-Project Standards:
-  -- Logging Standards
-  -- Naming Standards
-        function,method ,variable=> Camel Case 
-        class => Pascal case              
-        folder=>KEBAB
-        css=>SNAKE CASE
-  -- Error handling
-      
-*/
-/* Rest api
-   graph api
-   traditional api
- */
-/*
-R-TASK
-
-*/
-
 // const calculate = (str: string) => {
 //   const splitted = str.split("+");
 //   let result = 0;
