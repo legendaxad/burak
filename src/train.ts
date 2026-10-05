@@ -1,3 +1,28 @@
+// S-TASK
+
+// const calculate = (num: number[]): string => {
+//   const sorted: number[] = num.sort((a, b) => a - b);
+
+//   let result: number[] = [];
+//   let i: number = 0;
+
+//   for (i; i < sorted.length - 1; i++) {
+//     let current: number = sorted[i];
+//     let next: number = sorted[i + 1];
+
+//     for (let a: number = current + 1; a < next; a++) {
+//       result.push(a);
+//     }
+//   }
+
+//   return result.toString();
+// };
+
+// console.log(calculate([5, 0, 1]));
+
+//
+
+// R-task
 // const calculate = (str: string) => {
 //   const splitted = str.split("+");
 //   let result = 0;
