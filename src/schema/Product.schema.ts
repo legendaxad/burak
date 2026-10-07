@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import { Member } from "../libs/types/member";
 import {
   ProductCollection,
   ProductSize,
@@ -13,7 +12,7 @@ const productSchema = new Schema<Product>(
     productStatus: {
       type: String,
       enum: ProductStatus,
-      default: ProductStatus.PUASE,
+      default: ProductStatus.PAUSE,
     },
     productCollection: {
       type: String,
@@ -57,7 +56,7 @@ const productSchema = new Schema<Product>(
   { timestamps: true },
 );
 productSchema.index(
-  { productName: 1, productSize: 1, ProductVolume: 1 },
+  { productName: 1, productSize: 1, productVolume: 1 },
   { unique: true },
 );
 export default mongoose.model<Product>("Product", productSchema);
