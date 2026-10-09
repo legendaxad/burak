@@ -50,14 +50,18 @@ productController.createNewProduct = async (
   }
 };
 
-productController.updateChosenProduct = async (req: Request, res: Response) => {
+productController.updateChosenProduct = async (
+  req: AdminRequest,
+  res: Response,
+) => {
   try {
     console.log("updateChosenProduct");
     const id = req.params.id;
     const data: ProductUpdateInput = req.body;
-    if (req.files && Array.isArray(req.files) && req.files.length > 0) {
+    if (req.files?.length) {
       data.productImages = req.files.map((ele) => ele.path);
     }
+
     const result = await productService.updateChosenProduct(id, data);
     res.status(HttpCode.OK).json({ data: result });
   } catch (err) {
