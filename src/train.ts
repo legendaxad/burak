@@ -1,23 +1,27 @@
 // T-TASK
+const mergeSortedArrays = (arr1: number[], arr2: number[]) =>
+  arr1.concat(arr2).sort((a, b) => a - b);
 
-const mergeSortedArrays = (arr1: number[], arr2: number[]) => {
-  const result: number[] = [];
-
-  for (const ele of arr1) {
-    result.push(ele);
-  }
-  for (const ele of arr2) {
-    result.push(ele);
-  }
-
-  result.sort((a, b) => a - b);
-
-  const final = `[${result.join(", ")}]`;
-
-  return final;
-};
-
+// Testing
 console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// const mergeSortedArrays = (arr1: number[], arr2: number[]) => {
+//   const result: number[] = [];
+
+//   for (const ele of arr1) {
+//     result.push(ele);
+//   }
+//   for (const ele of arr2) {
+//     result.push(ele);
+//   }
+
+//   result.sort((a, b) => a - b);
+
+//   const final = `[${result.join(", ")}]`;
+
+//   return final;
+// };
+
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 // S-TASK
 
