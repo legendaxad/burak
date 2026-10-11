@@ -1,7 +1,12 @@
 import { T } from "../libs/types/common";
 import { NextFunction, Request, Response } from "express";
 import MemberService from "../model/Member.service";
-import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
+import {
+  AdminRequest,
+  LoginInput,
+  MemberInput,
+  MemberUpdateInput,
+} from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enums";
 import { HttpCode, Message } from "../libs/Error";
 import Errors from "../libs/Error";
@@ -103,12 +108,14 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
     res.redirect("/admin/login");
   }
 };
-restaurantController.updateChosenUser = (req: Request, res: Response) => {
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
   try {
-    res.render("login");
-    // send | json |redirect | end | render
-  } catch (error) {
-    console.error("Error  updateChosenUser page:", error);
+    const result = await memberService.updateChosenUser(req.body);
+    res.status(HttpCode.OK).json({ data: result });
+  } catch (err) {
+    console.error("Error  updateChosenUser page:", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
   }
 };
 
