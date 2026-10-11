@@ -1,9 +1,23 @@
-// T-TASK
-const mergeSortedArrays = (arr1: number[], arr2: number[]) =>
-  arr1.concat(arr2).sort((a, b) => a - b);
+// U-task
 
-// Testing
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// const sumOdds = (number: number) => {
+//   let count = 0;
+//   for (let i = 0; i < number; i++) {
+//     if (i % 2 !== 0) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// };
+// console.log(sumOdds(9));
+
+// T-TASK
+// const mergeSortedArrays = (arr1: number[], arr2: number[]) =>
+//   arr1.concat(arr2).sort((a, b) => a - b);
+
+// // Testing
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 // const mergeSortedArrays = (arr1: number[], arr2: number[]) => {
 //   const result: number[] = [];
 
