@@ -1,12 +1,7 @@
 import { T } from "../libs/types/common";
 import { NextFunction, Request, Response } from "express";
 import MemberService from "../model/Member.service";
-import {
-  AdminRequest,
-  LoginInput,
-  MemberInput,
-  MemberUpdateInput,
-} from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enums";
 import { HttpCode, Message } from "../libs/Error";
 import Errors from "../libs/Error";
