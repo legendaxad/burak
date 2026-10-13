@@ -62,11 +62,7 @@ class MemberService {
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
     try {
-      //static method
       const result = await this.memberModel.create(input);
-      //template method
-      // const tempResult = new this.memberModel(input);
-      // const result = await tempResult.save();
       result.memberPassword = "";
       return result;
     } catch (err) {
