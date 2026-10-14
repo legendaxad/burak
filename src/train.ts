@@ -1,5 +1,22 @@
 // V-TASK
+// OBJECT version
+// const countChars = (arr: any) => {
+//   const splitted = arr.split("").sort();
+//   let result: any = {};
+//   let count = 1;
+//   for (let i = 0; i < splitted.length; i++) {
+//     if (splitted[i] === splitted[i + 1]) {
+//       count++;
+//     } else {
+//       result[splitted[i]] = count;
+//       count = 1;
+//     }
+//   }
+//   return result;
+// };
+// console.log(countChars("Hello"));
 
+//  STRIGN VERSION
 // const countChars = (arr: any) => {
 //   const splitted = arr.split("").sort().join("");
 //   let result = "";
