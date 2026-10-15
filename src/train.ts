@@ -1,3 +1,15 @@
+// // w-TASK
+// const chunkArray = (arr: number[], num: number) => {
+//   const result = [];
+//   for (let i = 0; i <= arr.length; i += num) {
+//     const slice = arr.slice(i, i + num);
+//     result.push(slice);
+//   }
+//   return result;
+// };
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
 // V-TASK
 // OBJECT version
 // const countChars = (arr: any) => {
