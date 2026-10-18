@@ -46,23 +46,23 @@
        <!-- LOOP PRODUCTS: START -->
 
 <tbody style="background: white">
-  <% products.forEach((product, index) => { %>
+  <% products.map((value, key) => { %>
     <tr>
-      <td><%= index + 1 %></td>
-      <td><%= product.productName %></td>
-      <td><%= product.productCollection %></td>
-      <td><%= product.productVolume %></td>
-      <td><%= product.productPrice %></td>
-      <td><%= product.productLeftCount %></td>
+      <td><%= key + 1 %></td>
+      <td><%= value.productName %></td>
+      <td><%= value.productCollection%> </td>
+      <td><%= value.productCollection === "DRINK" ? value.productVolume : value.productSize %></td>
+      <td><%= value.productPrice %></td>
+      <td><%= value.productLeftCount %></td>
       <td>
         <select
           class="spec-select new-product-status"
-          data-id="<%= product._id %>"
+          data-id="<%= key._id %>"
         >
          
-.     <option value="PAUSE" <%= product.productStatus === 'PAUSE' ? 'selected' : '' %>>PAUSE</option>
-.     <option value="PROCESS" <%= product.productStatus === 'PROCESS' ? 'selected' : '' %>>PROCESS</option>
-.     <option value="DELETE" <%= product.productStatus === 'DELETE' ? 'selected' : '' %>>DELETE</option>.     
+.     <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected' : '' %>>PAUSE</option>
+.     <option value="PROCESS" <%= value.productStatus === 'PROCESS' ? 'selected' : '' %>>PROCESS</option>
+.     <option value="DELETE" <%= value.productStatus === 'DELETE' ? 'selected' : '' %>>DELETE</option>.     
         </select>
       </td>
     </tr>
