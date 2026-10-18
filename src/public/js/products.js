@@ -19,6 +19,25 @@ $(function () {
             $(".dish-container").slideToggle(200);
             $("#process-btn").css("display", "none")
       })
+      $(".new-product-status").on("change", async function (e) {
+            const id = e.target.id;
+            console.log(id)
+            const productStatus = $(`#${id}.new-product-status`).val()
+
+            try {
+                  const response = await axios.post(`/admin/product/${id}`, { productStatus: productStatus })
+                  const result = response.data
+                  if (result.data) {
+                        $(".new-product-status").blur()
+
+                  }
+                  else alert("Product update failed")
+
+            } catch (err) {
+                  console.log(err)
+                  alert("Product update failed")
+            }
+      })
 })
 
 function validateForm() {
