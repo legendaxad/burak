@@ -61,29 +61,31 @@
               </tr>
             </thead>
             <!--  LOOP PRODUCTS: START  -->
+  <% users.map((value, index) => { %>
            
 <tbody style="background: white">
-  <% users.forEach((user, index) => { %>
     <tr>
       <td><%= index + 1 %></td>
-      <td><%= user.memberNick %></td>
-      <td><%= user.memberPhone %></td>
+      <td><%= value.memberNick %></td>
+      <td><%= value.memberPhone %></td>
       <td style="width: 13%">
-        <select class="spec-select member-status">
-          <option value="ACTIVE" <%= user.memberStatus === 'ACTIVE' ? 'selected' : '' %>>
+       
+        <select class="spec-select member-status"   id="<%= value._id %>" >
+          <option value="ACTIVE" <%= value.memberStatus === 'ACTIVE' ? 'selected' : '' %>>
             ACTIVE
           </option>
-          <option value="BLOCK" <%= user.memberStatus === 'BLOCK' ? 'selected' : '' %>>
+          <option value="BLOCK" <%= value.memberStatus === 'BLOCK' ? 'selected' : '' %>>
             BLOCK
           </option>
-          <option value="DELETE" <%= user.memberStatus === 'DELETE' ? 'selected' : '' %>>
+          <option value="DELETE" <%= value.memberStatus === 'DELETE' ? 'selected' : '' %>>
             DELETE
           </option>
         </select>
       </td>
     </tr>
-  <% }); %>
 </tbody>
+  <% }); %>
+
             <!--  LOOP PRODUCTS: END  -->
           </table>
         </div>
