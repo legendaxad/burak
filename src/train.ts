@@ -1,3 +1,32 @@
+// // X-task
+
+// const countOccurrences = (obj: any, str: string) => {
+//   let count = 0;
+//   for (const key in obj) {
+//     if (key === str) {
+//       count++;
+//     }
+//     if (typeof obj[key] == "object" && obj[key] !== null) {
+//       for (const key2 in obj[key]) {
+//         if (key2 === str) {
+//           count++;
+//         }
+//       }
+//     }
+//   }
+//   return count;
+// };
+// console.log(
+//   countOccurrences(
+//     {
+//       model: "Bugatti",
+//       steer: { model: "HANKOOK", size: 30 },
+//       door: { model: "HANKOOK", size: 30 },
+//     },
+//     "model",
+//   ),
+// );
+
 // // w-TASK
 // const chunkArray = (arr: number[], num: number) => {
 //   const result = [];
