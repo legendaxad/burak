@@ -1,18 +1,30 @@
+// Z-TASK
+
+// const sumEvens = (arr: number[]) => {
+//   let result = 0;
+//   for (const ele of arr) {
+//     if (ele % 2 === 0) {
+//       result += ele;
+//     }
+//   }
+//   return result;
+// };
+// console.log(sumEvens([2, 3, 5, 4, 1]));
+
 // Y-TASK
+// const findIntersection = (arr1: number[], arr2: number[]): number[] => {
+//   const result: number[] = [];
+//   const a: number[] = [];
+//   for (const ele of arr1) {
+//     if (arr2.includes(ele)) {
+//       result.push(ele);
+//     }
+//   }
 
-const findIntersection = (arr1: number[], arr2: number[]): number[] => {
-  const result: number[] = [];
-  const a: number[] = [];
-  for (const ele of arr1) {
-    if (arr2.includes(ele)) {
-      result.push(ele);
-    }
-  }
+//   return result;
+// };
 
-  return result;
-};
-
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+// console.log(findIntersection([1, 2, 3], [3, 2, 0]));
 // // X-task
 
 // const countOccurrences = (obj: any, str: string) => {
