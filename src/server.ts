@@ -1,7 +1,6 @@
-import dotenv from "dotenv";
+import "dotenv/config";
 import mongoose from "mongoose";
 import app from "./app";
-dotenv.config();
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGO_URL as string)

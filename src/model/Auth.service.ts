@@ -2,11 +2,10 @@ import { AUTH_TIMER } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { Member } from "../libs/types/member";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
 
 class AuthService {
-  private readonly secretToken;
+  private readonly secretToken: string;
+
   constructor() {
     this.secretToken = process.env.SECRET_TOKEN as string;
   }
