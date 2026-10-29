@@ -2,8 +2,14 @@ import { AUTH_TIMER } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { Member } from "../libs/types/member";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
+
 class AuthService {
-  constructor() {}
+  private readonly secretToken;
+  constructor() {
+    this.secretToken = process.env.SECRET_TOKEN as string;
+  }
   public async createToken(payLoad: Member) {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIMER}h`;
@@ -22,6 +28,13 @@ class AuthService {
         },
       );
     });
+  }
+  public async checkAuth(token: string): Promise<Member> {
+    const result: Member = (await jwt.verify(
+      token,
+      this.secretToken,
+    )) as Member;
+    return result;
   }
 }
 
