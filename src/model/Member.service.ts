@@ -66,6 +66,19 @@ class MemberService {
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result as Member;
   }
+  public async updateMember(
+    member: Member,
+    input: MemberUpdateInput,
+  ): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel.findByIdAndUpdate(
+      { _id: memberId },
+      input,
+      { new: true },
+    );
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    return result;
+  }
 
   /* SSR */
   public async processSignup(input: MemberInput): Promise<Member> {
