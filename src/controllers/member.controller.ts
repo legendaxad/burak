@@ -16,6 +16,12 @@ const memberService = new MemberService();
 const authService = new AuthService();
 //React
 const memberController: T = {};
+
+memberController.getRestaurant = async (req: Request, res: Response) => {
+  const result = await memberService.getRestaurant();
+
+  res.status(HttpCode.CREATED).json(result);
+};
 memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("body:", req.body);
