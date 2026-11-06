@@ -1,3 +1,4 @@
+import { ObjectId } from "mongoose";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ProductStatus } from "../libs/enums/product.enum";
 import Errors, { HttpCode, Message } from "../libs/Error";
@@ -39,10 +40,22 @@ class ProductService {
     if (!result) throw new Errors(HttpCode.BAD_REQUEST, Message.NO_DATA_FOUND);
     return result;
   }
+  public async getProduct(
+    memberId: ObjectId | null,
+    id: string,
+  ): Promise<Product> {
+    const productId = shapeIntoMongooseObjectId(id);
+    let result = await this.productModel
+      .findOne({ _id: productId, productStatus: ProductStatus.PROCESS })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    // TODO if authentecated users=> first=>view log creation
+    return result;
+  }
   /* SSR */
   public async getAllProducts(): Promise<Product[]> {
     const result = await this.productModel.find().exec();
-    if (!result) throw new Errors(HttpCode.BAD_REQUEST, Message.NO_DATA_FOUND);
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result;
   }
 
