@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { ViewGroup } from "../libs/enums/view.enum";
+import { View } from "../libs/types/view";
 
 const viewSchema = new Schema(
   {
@@ -22,4 +23,4 @@ const viewSchema = new Schema(
   },
   { timestamps: true },
 );
-export default mongoose.model("View", viewSchema);
+export default mongoose.model<View>("View", viewSchema);
