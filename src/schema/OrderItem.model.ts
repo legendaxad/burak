@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { OrderStatus } from "../libs/enums/order.enum";
+import { OrderItem } from "../libs/types/order";
 
 const orderItemSchema = new Schema(
   {
@@ -25,4 +26,4 @@ const orderItemSchema = new Schema(
     collection: "orderItems",
   },
 );
-export default mongoose.model("OrderItem", orderItemSchema);
+export default mongoose.model<OrderItem>("OrderItem", orderItemSchema);
