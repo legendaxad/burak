@@ -68,11 +68,17 @@ class OrderServive {
     inquiry: OrderInquiry,
   ): Promise<Order[]> {
     const memberId = shapeIntoMongooseObjectId(member._id);
-    const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
+    const matches: any = {
+      memberId: memberId,
+    };
+
+    if (inquiry.orderStatus) {
+      matches.orderStatus = inquiry.orderStatus;
+    }
     const result = await this.orderModel
       .aggregate([
         { $match: matches },
-        { $sort: { updateAt: -1 } },
+        { $sort: { updatedAt: -1 } },
         { $skip: (inquiry.page - 1) * inquiry.limit },
         { $limit: inquiry.limit },
         {
@@ -106,7 +112,7 @@ class OrderServive {
       orderStaus = input.orderStatus;
 
     const result = await this.orderModel
-      .findByIdAndUpdate(
+      .findOneAndUpdate(
         { memberId: memberId, _id: orderId },
         { orderStatus: orderStaus },
         { new: true },

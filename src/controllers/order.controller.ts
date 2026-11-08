@@ -24,8 +24,8 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
     console.log("getMyOrders");
     const { page, limit, orderStatus } = req.query;
     const inquiry: OrderInquiry = {
-      page: Number(page),
-      limit: Number(limit),
+      page: Number(page) || 1,
+      limit: Number(limit) || 10,
       orderStatus: orderStatus as OrderStatus,
     };
     const result = await orderServive.getMyOrders(req.member, inquiry);
