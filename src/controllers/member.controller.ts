@@ -20,7 +20,7 @@ const memberController: T = {};
 memberController.getRestaurant = async (req: Request, res: Response) => {
   const result = await memberService.getRestaurant();
 
-  res.status(HttpCode.CREATED).json(result);
+  res.status(HttpCode.OK).json(result);
 };
 memberController.signup = async (req: Request, res: Response) => {
   try {
@@ -120,9 +120,6 @@ memberController.verifyAuth = async (
       throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
     next();
   } catch (err) {
-    console.log("Error:", err);
-    console.log("Is Errors instance:", err instanceof Errors);
-
     if (err instanceof Errors) {
       res.status(err.code).json(err);
     } else {
